@@ -1,0 +1,11 @@
+# .vscode/
+.DS_Store
+.buildpath
+.settings
+.project
+*.swp
+*.tmproj
+__debug_bin
+/certs/*.pem
+telepresence.log
+.env-file

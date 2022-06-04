@@ -1,0 +1,61 @@
+{
+  "name": "MBTI-CH1",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "1.18",
+      // Options
+      "INSTALL_NODE": "false",
+      "NODE_VERSION": "lts/*"
+    }
+  },
+  "runArgs": [],
+  "remoteEnv": {
+    "GOPRIVATE": "*.github.com"
+  },
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.external.linuxExec": "/usr/bin/fish",
+    "go.toolsManagement.checkForUpdates": "proxy",
+    "go.useLanguageServer": true,
+    "go.gopath": "/go",
+    "go.goroot": "/usr/local/go",
+    "go.toolsGopath": "/go/bin",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "golang.Go",
+    "coenraads.bracket-pair-colorizer-2",
+    "xaver.clang-format",
+    "alphabotsec.vscode-eclipse-keybindings",
+    "redvanworkshop.explorer-exclude-vscode-extension",
+    "vector-of-bool.gitflow",
+    "oderwat.indent-rainbow",
+    "mongodb.mongodb-vscode@0.5.0",
+    "quicktype.quicktype",
+    "esbenp.prettier-vscode",
+    "humao.rest-client",
+    "visualstudioexptteam.vscodeintellicode",
+    "zxh404.vscode-proto3",
+    "redhat.vscode-yaml",
+    "azemoh.one-monokai",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "johnpapa.vscode-peacock"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "go version",
+  "postStartCommand": "mkdir -p /dev/net && mknod /dev/net/tun c 10 200 && chmod 600 /dev/net/tun"
+
+  // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
+}
